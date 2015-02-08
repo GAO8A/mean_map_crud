@@ -1,0 +1,36 @@
+<section data-ng-controller="ArticlesController" data-ng-init="find()">
+	<div class="page-header">
+		<h1>Articles</h1>
+	</div>
+	<div class="list-group">
+		<a data-ng-repeat="article in articles" data-ng-href="#!/articles/{{article._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="article.created | date:'mediumDate'"></span>
+				by
+				<span data-ng-bind="article.user.displayName">
+					
+				</span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="article.title"></h4>
+
+			<p class="list-group-item-text" data-ng-bind="article.content"></p>
+			<p class="list-group-item-text" data-ng-bind="article.lon"></p>
+			<p class="list-group-item-text" data-ng-bind="article.lat"></p>
+		</a>
+
+<!-- map -->
+
+<map center="[40.74, -74.18]">
+  <marker position="[40.76, -74.16]" title="Hello Marker" animation="Animation.BOUNCE" draggable="true" visible="true"></marker>
+</map>
+
+
+
+	</div>
+
+	<!-- if theres no articles length. -->
+	<div class="alert alert-warning text-center" data-ng-if="articles.$resolved && !articles.length">
+		No articles yet, why don't you <a href="/#!/articles/create">create one</a>?
+	</div>
+</section>
