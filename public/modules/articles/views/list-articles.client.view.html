@@ -21,8 +21,10 @@
 
 <!-- map -->
 
-<map center="[40.74, -74.18]">
-  <marker position="[40.76, -74.16]" title="Hello Marker" animation="Animation.BOUNCE" draggable="true" visible="true"></marker>
+<map center="[0,0]" zoom="1">
+  <marker ng-repeat='article in articles' position='[{{article.lon}},{{article.lat}}]' visible="true">
+  	<a href="http://www.google.com"></a>
+  </marker>
 </map>
 
 

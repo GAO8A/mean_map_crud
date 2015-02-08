@@ -19,14 +19,16 @@
 		</em>
 	</small>
 	<p class="lead" data-ng-bind="article.content"></p>
-	Longitude: 	{{article.coords}}
+	Longitude: 
 	<p class="lead" data-ng-bind="article.lon"></p>
 	Latitude: 
 	<p class="lead" data-ng-bind="article.lat"></p>
 
 
-<map center="0, 0" zoom ='9'>
-  <marker visible="true"></marker>
+<map zoom ='9'>
+
+  <marker position="[0,0]" visible="true"></marker>
+  <!-- a initial position must be set because it will prompt the users current geolocation and set it to that -->
 </map>
 
 </section>

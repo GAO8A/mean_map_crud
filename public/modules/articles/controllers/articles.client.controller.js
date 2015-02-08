@@ -70,12 +70,11 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 
 
 
-  var marker, map;
-  $scope.$on('mapInitialized', function(event,evtMap) {
 
-  	// var marker = map.markers[0];
-  	  map = evtMap;
-      marker = map.markers[0];
+  $scope.$on('mapInitialized', function(event,map) {
+
+  	var marker = map.markers[0];
+
 
   	$scope.$watch('article.lat',function(newVal,oldVal){
   		  if(newVal === oldVal){
