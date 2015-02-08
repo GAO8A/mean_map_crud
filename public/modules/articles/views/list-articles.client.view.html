@@ -22,8 +22,7 @@
 <!-- map -->
 
 <map center="[0,0]" zoom="1">
-  <marker ng-repeat='article in articles' position='[{{article.lon}},{{article.lat}}]' visible="true">
-  	<a href="http://www.google.com"></a>
+  <marker ng-repeat='article in articles' position='[{{article.lon}},{{article.lat}}]' visible="true" on-click="gotolink(event,article)">
   </marker>
 </map>
 

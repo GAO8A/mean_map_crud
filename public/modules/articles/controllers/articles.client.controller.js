@@ -62,15 +62,10 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 				articleId: $stateParams.articleId
 			});
 		};
-		//
-
-    // $scope.$watch('lat', function(newVal, oldVal) {
-    //   console.log('newVal', newVal, 'oldVal', oldVal);
-    // }, true);
 
 
 
-
+// $watch to add a the marker
   $scope.$on('mapInitialized', function(event,map) {
 
   	var marker = map.markers[0];
@@ -89,6 +84,12 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 });
 
   });
+
+//marker link
+  $scope.gotolink= function(event,i) {
+  $location.path('articles/'+ i._id);
+
+};
 
 
 	}
