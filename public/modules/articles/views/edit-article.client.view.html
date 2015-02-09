@@ -5,6 +5,13 @@
 	<div class="col-md-12">
 		<form name="articleForm" class="form-horizontal" data-ng-submit="update(articleForm.$valid)" novalidate>
 			<fieldset>
+
+				<map zoom ='5'>
+
+  				<marker position="[0,0]" visible="true"></marker>
+  				<!-- a initial position must be set because it will prompt the users current geolocation and set it to that -->
+				</map>
+
 				<!-- title -->
 				<div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.title.$invalid}">
 					<label class="control-label" for="title">Title</label>
@@ -20,11 +27,22 @@
 				<div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.content.$invalid}">
 					<label class="control-label" for="content">Content</label>
 					<div class="controls">
-						<textarea name="content" data-ng-model="article.content" id="content" class="form-control" cols="30" rows="10" placeholder="Content" required></textarea>
+						<textarea name="content" data-ng-model="article.content" id="content" class="form-control" cols="10" rows="1" placeholder="Content" required></textarea>
 					</div>
 
 					<div ng-show="submitted && articleForm.content.$invalid" class="help-block">
 						<p ng-show="articleForm.content.$error.required" class="text-danger">Content is required</p>
+					</div>
+				</div>
+				<!-- lat -->
+				<div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.content.$invalid}">
+					<label class="control-label" for="lat">Latitude</label>
+					<div class="controls">
+						<textarea name="content" data-ng-model="article.lat" id="content" class="form-control" cols="10" rows="1" placeholder="Latitude" required></textarea>
+					</div>
+
+					<div ng-show="submitted && articleForm.content.$invalid" class="help-block">
+						<p ng-show="articleForm.content.$error.required" class="text-danger">Latitude is required</p>
 					</div>
 				</div>
 
@@ -43,17 +61,6 @@
 				</div>				
 
 
-				<!-- lat -->
-				<div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.content.$invalid}">
-					<label class="control-label" for="lat">Latitude</label>
-					<div class="controls">
-						<textarea name="content" data-ng-model="article.lat" id="content" class="form-control" cols="10" rows="1" placeholder="Latitude" required></textarea>
-					</div>
-
-					<div ng-show="submitted && articleForm.content.$invalid" class="help-block">
-						<p ng-show="articleForm.content.$error.required" class="text-danger">Latitude is required</p>
-					</div>
-				</div>
 
 
 				<!--  -->

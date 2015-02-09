@@ -65,31 +65,29 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 
 
 
-// $watch to add a the marker
-  $scope.$on('mapInitialized', function(event,map) {
+		// $watch to add a the marker
+  		$scope.$on('mapInitialized', function(event,map) {
 
-  	var marker = map.markers[0];
+  			var marker = map.markers[0];
 
 
-  	$scope.$watch('article.lat',function(newVal,oldVal){
-  		  if(newVal === oldVal){
+  			$scope.$watch('article.lat',function(newVal,oldVal){
+  		  	
+  		  	if(newVal === oldVal){
     		return;
   				}
-	console.log('lat has been changed');
-	console.log($scope.article.lat);
 
+  			map.setCenter({lat:$scope.article.lat, lng:$scope.article.lon});
+			marker.setPosition({lat:$scope.article.lat, lng:$scope.article.lon});
+			});
 
-  	map.setCenter({lat:$scope.article.lon, lng:$scope.article.lat});
-	marker.setPosition({lat:$scope.article.lon, lng:$scope.article.lat});
-});
+  		});
 
-  });
+		//marker link
+  		$scope.gotolink= function(event,i) {
+  			$location.path('articles/'+ i._id);
 
-//marker link
-  $scope.gotolink= function(event,i) {
-  $location.path('articles/'+ i._id);
-
-};
+		};
 
 
 	}

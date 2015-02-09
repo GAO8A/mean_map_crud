@@ -5,6 +5,13 @@
 	<div class="col-md-12">
 		<form name="articleForm" class="form-horizontal" data-ng-submit="create()" novalidate>
 			<fieldset>
+
+				<map center="{{lat}},{{lon}}]"zoom ='5'>
+
+  				<marker position="[{{lat}},{{lon}}]" visible="true"></marker>
+  				<!-- a initial position must be set because it will prompt the users current geolocation and set it to that -->
+				</map>
+
 				<div class="form-group" ng-class="{ 'has-error': articleForm.title.$dirty && articleForm.title.$invalid }">
 					<label class="control-label" for="title">Title</label>
 					<div class="controls">
@@ -15,7 +22,14 @@
 				<div class="form-group">
 					<label class="control-label" for="content">Content</label>
 					<div class="controls">
-						<textarea name="content" data-ng-model="content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
+						<textarea name="content" data-ng-model="content" id="content" class="form-control" cols="10" rows="1" placeholder="Content"></textarea>
+					</div>
+				</div>
+<!-- lat -->
+				<div class="form-group">
+					<label class="control-label" for="content">Latitude</label>
+					<div class="controls">
+						<textarea name="lat" data-ng-model="lat" id="lat" class="form-control" cols="10" rows="1" placeholder="Latitude"></textarea>
 					</div>
 				</div>
 
@@ -28,20 +42,9 @@
 				</div>
 
 
-<!-- lat -->
-				<div class="form-group">
-					<label class="control-label" for="content">Latitude</label>
-					<div class="controls">
-						<textarea name="lat" data-ng-model="lat" id="lat" class="form-control" cols="10" rows="1" placeholder="Latitude"></textarea>
-					</div>
-				</div>
 
 
-				<map center="{{lon}},{{lat}}]"zoom ='3'>
 
-  				<marker position="[{{lon}},{{lat}}]" visible="true"></marker>
-  <!-- a initial position must be set because it will prompt the users current geolocation and set it to that -->
-				</map>
 
 				<div class="form-group">
 					<input type="submit" class="btn btn-default">
