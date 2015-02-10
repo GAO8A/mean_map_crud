@@ -10,8 +10,8 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 				content: this.content,
 				///
 				lon: this.lon,
-
 				lat: this.lat
+				///
 			});
 			article.$save(function(response) {
 				$location.path('articles/' + response._id);
@@ -21,6 +21,7 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 				///
 				$scope.lon = 0;
 				$scope.lat = 0;
+				///
 
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
@@ -76,6 +77,7 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
   		  	if(newVal === oldVal){
     		return;
   				}
+  			// checks if value has changed
 
   			map.setCenter({lat:$scope.article.lat, lng:$scope.article.lon});
 			marker.setPosition({lat:$scope.article.lat, lng:$scope.article.lon});
