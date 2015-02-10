@@ -71,7 +71,7 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
   			var marker = map.markers[0];
 
 
-  			$scope.$watch('article.lat',function(newVal,oldVal){
+  			$scope.$watch('article.lat + article.lon',function(newVal,oldVal){
   		  	
   		  	if(newVal === oldVal){
     		return;

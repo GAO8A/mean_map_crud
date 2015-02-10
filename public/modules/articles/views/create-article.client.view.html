@@ -6,7 +6,7 @@
 		<form name="articleForm" class="form-horizontal" data-ng-submit="create()" novalidate>
 			<fieldset>
 
-				<map center="{{lat}},{{lon}}]"zoom ='5'>
+				<map center="[{{lat}},{{lon}}]" zoom ='5'>
 
   				<marker position="[{{lat}},{{lon}}]" visible="true"></marker>
   				<!-- a initial position must be set because it will prompt the users current geolocation and set it to that -->
@@ -25,7 +25,9 @@
 						<textarea name="content" data-ng-model="content" id="content" class="form-control" cols="10" rows="1" placeholder="Content"></textarea>
 					</div>
 				</div>
-<!-- lat -->
+
+				<!-- lat -->
+
 				<div class="form-group">
 					<label class="control-label" for="content">Latitude</label>
 					<div class="controls">
@@ -33,7 +35,7 @@
 					</div>
 				</div>
 
-<!-- lon -->
+				<!-- lon -->
 				<div class="form-group">
 					<label class="control-label" for="content">Longitude</label>
 					<div class="controls">
